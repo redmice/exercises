@@ -8,10 +8,10 @@ if (APPLE)
     add_definitions(-D__GLIBCXX__)
 endif (APPLE)
 
-set(SOURCE_FILES main.cpp src/graph.cpp src/graph.h src/graphAlgorithms.cpp)
+set(SOURCE_FILES main.cpp src/graph.cpp src/graph.h src/graphAlgorithms.cpp src/weightedGraph.cpp src/weightedGraph.h)
 add_executable(graph ${SOURCE_FILES})
 
-set(TEST_SOURCE_FILES test/graphTest.cpp src/graph.cpp src/graph.h src/graphAlgorithms.cpp)
+set(TEST_SOURCE_FILES test/graphTest.cpp src/graph.cpp src/graph.h src/graphAlgorithms.cpp src/weightedGraph.cpp src/weightedGraph.h)
 add_executable(graphTest ${TEST_SOURCE_FILES})
 
 # add gtest headers

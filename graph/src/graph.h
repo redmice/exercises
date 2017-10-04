@@ -10,7 +10,7 @@
 #include <list>
 
 class Node {
-private:
+protected:
     std::list<int> adjList;
     bool visited;
 public:
@@ -40,14 +40,14 @@ public:
 
 class DirectedGraph : public Graph {
 public:
-    DirectedGraph(){};
+    DirectedGraph(){}
     DirectedGraph(long n) : Graph(n){}
     void addEdge (int n1, int n2);
 };
 
 class UndirectedGraph : public Graph {
 public:
-    DirectedGraph;
+    UndirectedGraph(){}
     UndirectedGraph(long n) : Graph(n){}
     void addEdge (int n1, int n2);
 };
