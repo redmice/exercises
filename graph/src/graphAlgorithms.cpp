@@ -35,7 +35,7 @@ bool isConnected (DirectedGraph g, int n1, int n2) { // Using BSF to get the rou
 // 4.2 Minimal Tree: Given a sorted (increasing order) array with unique integer elements, write an algorithm to create
 // a binary search tree with minimal height
 
-// Version 1: Using BinaryTree class
+    // Version 1: Using BinaryTree class
 
 BinaryTreeNode *createMinimalBST (std::vector<int> const&v){
     BinaryTreeNode *root = createMinimalBST(v, 0, v.size()-1);
@@ -53,8 +53,8 @@ BinaryTreeNode *createMinimalBST (std::vector<int> const&v, int min, int max){
     return node;
 }
 
-// Version 2: Using a simple tree structure: maybe more adequate for interviews, where the focus is on solving the
-// exercise at hand, rather than build a full fledge data structure class.
+    // Version 2: Using a simple tree structure: maybe more adequate for interviews, where the focus is on solving the
+    // exercise at hand, rather than build a full fledge data structure class.
 
 
 BinTree *createMinimalBST_v2 (std::vector<int> const&v){
@@ -112,4 +112,25 @@ void insertNode_v2(BinTree *node, int n) {
     }
 }
 
+// List of Depths: Given a binary tree, design an algorithm which creates a linked list of all the nodes at each depth
+// (e.g., if you have a tree with depth D, you'll have Dlinked lists).
+
+std::vector<std::list<int>> depths (BinTree *root){
+    std::vector<std::list<int>> lists;
+    fillDepths (lists, root, 0);
+    return lists;
+}
+
+void fillDepths (std::vector<std::list<int>> &lists, BinTree *node, int level) {
+    if (node == nullptr) {
+        return;
+    }
+    if (lists.size() == level) { //level not included
+        std::list<int> newList;
+        lists.push_back(newList);
+    }
+    lists[level].push_back(node->value);
+    fillDepths (lists, node->left, level+1);
+    fillDepths (lists, node->right, level+1);
+}
 

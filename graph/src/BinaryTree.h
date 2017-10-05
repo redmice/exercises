@@ -7,6 +7,7 @@
 
 
 #include <vector>
+#include <list>
 
 class BinaryTreeNode {
 private:
@@ -51,6 +52,9 @@ BinTree *createMinimalBST_v2 (std::vector<int> const&v);
 BinTree *createMinimalBST_v2 (std::vector<int> const&v, int min, int max);
 int getHeight_v2(BinTree *node);
 void insertNode_v2(BinTree *node, int n);
+
+std::vector<std::list<int>> depths (BinTree *root);
+void fillDepths (std::vector<std::list<int>> &lists, BinTree *node, int level);
 
 
 #endif //GRAPH_BINARYTREE_H
