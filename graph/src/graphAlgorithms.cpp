@@ -67,35 +67,24 @@ BinTree *createMinimalBST_v2 (std::vector<int> const&v, int min, int max){
         return nullptr;
     }
     int midPoint = (min + max) / 2;
-    BinTree *node = new BinTree;
-    node->value = v[midPoint];
+    BinTree *node = new BinTree(v[midPoint]);
     node->left = createMinimalBST_v2(v, min, midPoint-1);
     node->right = createMinimalBST_v2(v, midPoint+1, max);
     return node;
 }
 
 int getHeight_v2(BinTree *node) {
-    int heightLeft = 0;
-    int heightRight = 0;
-
-    if ((node->left == nullptr) && (node->right == nullptr))
-        return 0;
-
-
-    if (node->left != nullptr)
-        heightLeft = 1 + getHeight_v2(node->left);
-    if (node->right != nullptr)
-        heightLeft = 1 + getHeight_v2(node->right);
-
-    return std::max(heightLeft, heightRight);
+    if (node == nullptr){
+        return -1;
+    }
+    return std::max(getHeight_v2(node->left), getHeight_v2(node->right)) + 1;
 }
 
 void insertNode_v2(BinTree *node, int n) {
 
     if (n <= node->value) { // left
         if (node->left == nullptr){
-            node->left = new BinTree;
-            node->left->value = n;
+            node->left = new BinTree(n);
         }
         else {
             insertNode_v2(node->left, n);
@@ -103,8 +92,7 @@ void insertNode_v2(BinTree *node, int n) {
     }
     if (n > node->value) { // right
         if (node->right == nullptr){
-            node->right = new BinTree;
-            node->right->value = n;
+            node->right = new BinTree(n);
         }
         else {
             insertNode_v2(node->right, n);
@@ -112,7 +100,7 @@ void insertNode_v2(BinTree *node, int n) {
     }
 }
 
-// List of Depths: Given a binary tree, design an algorithm which creates a linked list of all the nodes at each depth
+// 4.3 List of Depths: Given a binary tree, design an algorithm which creates a linked list of all the nodes at each depth
 // (e.g., if you have a tree with depth D, you'll have Dlinked lists).
 
 std::vector<std::list<int>> depths (BinTree *root){
@@ -134,3 +122,36 @@ void fillDepths (std::vector<std::list<int>> &lists, BinTree *node, int level) {
     fillDepths (lists, node->right, level+1);
 }
 
+// 4.4 Check Balanced: Implement a function to check if a binary tree is balanced. For the purposes of this question,
+// a balanced tree is defined to be a tree such that the heights of the two subtrees of any node never differ by more
+// than one.
+
+bool isBalanced(BinTree *root){
+    if (root == nullptr) return true;
+
+    int heightDiff = std::abs(getHeight_v2(root->left) - getHeight_v2(root->right));
+    if (heightDiff > 1) {
+        return false;
+    }
+    return isBalanced(root->left) && isBalanced(root->right);
+}
+
+// 4.5 Validate 8ST: Implement a function to check ifa binary tree is a binary search tree.
+
+bool checkBST(BinTree *node, BinTree *minNode, BinTree *maxNode){
+    if (node == nullptr) {
+        return true;
+    }
+    if ((minNode && (node->value <= minNode->value)) || (maxNode && (node->value > maxNode->value))) {
+        return false;
+    }
+    return checkBST(node->left, minNode, node) && checkBST(node->right, node, maxNode);
+}
+
+bool isBST(BinTree *root) {
+    return checkBST(root, nullptr, nullptr);
+}
+
+
+// 4.6 Successor: Write an algorithm to find the "next" node (i.e., in-order successor) of a given node in a binary
+// search tree. You may assume that each node has a link to its parent.

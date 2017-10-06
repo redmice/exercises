@@ -44,6 +44,7 @@ struct BinTree {
     BinTree *left = nullptr;
     BinTree *right = nullptr;
     int value;
+    BinTree(int x) : value(x), left(nullptr), right(nullptr) {}
 };
 
 BinaryTreeNode *createMinimalBST (std::vector<int> const&v);
@@ -56,5 +57,8 @@ void insertNode_v2(BinTree *node, int n);
 std::vector<std::list<int>> depths (BinTree *root);
 void fillDepths (std::vector<std::list<int>> &lists, BinTree *node, int level);
 
+bool isBalanced(BinTree *root);
+
+bool isBST(BinTree *root);
 
 #endif //GRAPH_BINARYTREE_H

@@ -13,6 +13,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2b4d8033-1714-4d48-b13f-6acf27bc4dde" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/BinaryTree.h" afterPath="$PROJECT_DIR$/src/BinaryTree.h" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/graphAlgorithms.cpp" afterPath="$PROJECT_DIR$/src/graphAlgorithms.cpp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/bstTest.cpp" afterPath="$PROJECT_DIR$/test/bstTest.cpp" />
@@ -27,11 +28,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="graphAlgorithms.cpp" pinned="false" current-in-tab="false">
+      <file leaf-file-name="graphAlgorithms.cpp" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/graphAlgorithms.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="645">
-              <caret line="123" column="46" lean-forward="false" selection-start-line="123" selection-start-column="46" selection-end-line="123" selection-end-column="46" />
+            <state relative-caret-position="613">
+              <caret line="155" column="113" lean-forward="true" selection-start-line="155" selection-start-column="113" selection-end-line="155" selection-end-column="113" />
               <folding>
                 <element signature="e#51#67#0" expanded="true" />
               </folding>
@@ -52,8 +53,8 @@
       <file leaf-file-name="BinaryTree.h" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/BinaryTree.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="780">
-              <caret line="56" column="46" lean-forward="false" selection-start-line="56" selection-start-column="46" selection-end-line="56" selection-end-column="46" />
+            <state relative-caret-position="-16">
+              <caret line="42" column="12" lean-forward="true" selection-start-line="42" selection-start-column="12" selection-end-line="42" selection-end-column="12" />
               <folding>
                 <element signature="e#114#131#0" expanded="true" />
               </folding>
@@ -61,11 +62,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="bstTest.cpp" pinned="false" current-in-tab="true">
+      <file leaf-file-name="bstTest.cpp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/test/bstTest.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="481">
-              <caret line="56" column="6" lean-forward="true" selection-start-line="56" selection-start-column="6" selection-end-line="56" selection-end-column="6" />
+            <state relative-caret-position="12">
+              <caret line="71" column="0" lean-forward="true" selection-start-line="71" selection-start-column="0" selection-end-line="71" selection-end-column="0" />
               <folding>
                 <element signature="e#58#77#0" expanded="true" />
               </folding>
@@ -117,9 +118,9 @@
         <option value="$PROJECT_DIR$/src/graph.h" />
         <option value="$PROJECT_DIR$/src/weightedGraph.h" />
         <option value="$PROJECT_DIR$/src/BinaryTree.cpp" />
+        <option value="$PROJECT_DIR$/src/BinaryTree.h" />
         <option value="$PROJECT_DIR$/test/bstTest.cpp" />
         <option value="$PROJECT_DIR$/src/graphAlgorithms.cpp" />
-        <option value="$PROJECT_DIR$/src/BinaryTree.h" />
       </list>
     </option>
   </component>
@@ -129,10 +130,11 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="y" value="23" />
-    <option name="width" value="1680" />
-    <option name="height" value="1027" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="2803" />
+    <option name="y" value="3" />
+    <option name="width" value="1360" />
+    <option name="height" value="1173" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -224,59 +226,59 @@
       <option name="presentableId" value="Default" />
       <updated>1507147860856</updated>
       <workItem from="1507147862083" duration="2442000" />
-      <workItem from="1507191349692" duration="14067000" />
+      <workItem from="1507191349692" duration="21986000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="All_in_bstTest_cpp - 2017.10.05 at 20h 14m 58s.xml">
+    <history-entry file="All_in_bstTest_cpp - 2017.10.06 at 15h 05m 03s.xml">
       <configuration name="All in bstTest.cpp" configurationId="CMakeGoogleTestRunConfigurationType" />
     </history-entry>
-    <history-entry file="All_in_bstTest_cpp - 2017.10.05 at 20h 57m 31s.xml">
+    <history-entry file="All_in_bstTest_cpp - 2017.10.06 at 15h 05m 38s.xml">
       <configuration name="All in bstTest.cpp" configurationId="CMakeGoogleTestRunConfigurationType" />
     </history-entry>
-    <history-entry file="All_in_bstTest_cpp - 2017.10.05 at 20h 57m 33s.xml">
+    <history-entry file="All_in_bstTest_cpp - 2017.10.06 at 15h 05m 47s.xml">
       <configuration name="All in bstTest.cpp" configurationId="CMakeGoogleTestRunConfigurationType" />
     </history-entry>
-    <history-entry file="All_in_bstTest_cpp - 2017.10.05 at 20h 57m 37s.xml">
+    <history-entry file="All_in_bstTest_cpp - 2017.10.06 at 15h 41m 41s.xml">
       <configuration name="All in bstTest.cpp" configurationId="CMakeGoogleTestRunConfigurationType" />
     </history-entry>
-    <history-entry file="All_in_bstTest_cpp - 2017.10.05 at 20h 57m 45s.xml">
+    <history-entry file="All_in_bstTest_cpp - 2017.10.06 at 15h 44m 13s.xml">
       <configuration name="All in bstTest.cpp" configurationId="CMakeGoogleTestRunConfigurationType" />
     </history-entry>
-    <history-entry file="All_in_bstTest_cpp - 2017.10.05 at 20h 57m 52s.xml">
+    <history-entry file="All_in_bstTest_cpp - 2017.10.06 at 16h 03m 29s.xml">
       <configuration name="All in bstTest.cpp" configurationId="CMakeGoogleTestRunConfigurationType" />
     </history-entry>
-    <history-entry file="All_in_bstTest_cpp - 2017.10.05 at 20h 58m 38s.xml">
+    <history-entry file="All_in_bstTest_cpp - 2017.10.06 at 16h 05m 30s.xml">
       <configuration name="All in bstTest.cpp" configurationId="CMakeGoogleTestRunConfigurationType" />
     </history-entry>
-    <history-entry file="All_in_bstTest_cpp - 2017.10.05 at 22h 00m 06s.xml">
+    <history-entry file="All_in_bstTest_cpp - 2017.10.06 at 17h 04m 54s.xml">
       <configuration name="All in bstTest.cpp" configurationId="CMakeGoogleTestRunConfigurationType" />
     </history-entry>
-    <history-entry file="All_in_bstTest_cpp - 2017.10.05 at 22h 06m 56s.xml">
+    <history-entry file="All_in_bstTest_cpp - 2017.10.06 at 17h 05m 17s.xml">
       <configuration name="All in bstTest.cpp" configurationId="CMakeGoogleTestRunConfigurationType" />
     </history-entry>
-    <history-entry file="All_in_bstTest_cpp - 2017.10.05 at 22h 07m 21s.xml">
+    <history-entry file="All_in_bstTest_cpp - 2017.10.06 at 17h 08m 30s.xml">
       <configuration name="All in bstTest.cpp" configurationId="CMakeGoogleTestRunConfigurationType" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="16509000" />
+    <option name="totallyTimeSpent" value="24428000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1680" height="1027" extended-state="6" />
+    <frame x="2803" y="3" width="1360" height="1173" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20119047" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2485294" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32146597" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31970936" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="CMake" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32976446" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32879582" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3396912" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3985056" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -296,7 +298,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="7" />
+      <option name="time" value="8" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="CMakeGoogleTestRunConfigurationType">
@@ -411,20 +413,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/graphAlgorithms.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="645">
-          <caret line="123" column="46" lean-forward="false" selection-start-line="123" selection-start-column="46" selection-end-line="123" selection-end-column="46" />
-          <folding>
-            <element signature="e#51#67#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/BinaryTree.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="780">
-          <caret line="56" column="46" lean-forward="false" selection-start-line="56" selection-start-column="46" selection-end-line="56" selection-end-column="46" />
+        <state relative-caret-position="-16">
+          <caret line="42" column="12" lean-forward="true" selection-start-line="42" selection-start-column="12" selection-end-line="42" selection-end-column="12" />
           <folding>
             <element signature="e#114#131#0" expanded="true" />
           </folding>
@@ -433,10 +425,20 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/test/bstTest.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="481">
-          <caret line="56" column="6" lean-forward="true" selection-start-line="56" selection-start-column="6" selection-end-line="56" selection-end-column="6" />
+        <state relative-caret-position="12">
+          <caret line="71" column="0" lean-forward="true" selection-start-line="71" selection-start-column="0" selection-end-line="71" selection-end-column="0" />
           <folding>
             <element signature="e#58#77#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/graphAlgorithms.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="613">
+          <caret line="155" column="113" lean-forward="true" selection-start-line="155" selection-start-column="113" selection-end-line="155" selection-end-column="113" />
+          <folding>
+            <element signature="e#51#67#0" expanded="true" />
           </folding>
         </state>
       </provider>
