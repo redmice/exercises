@@ -43,14 +43,15 @@ public:
 struct BinTree {
     BinTree *left = nullptr;
     BinTree *right = nullptr;
+    BinTree *parent = nullptr;
     int value;
-    BinTree(int x) : value(x), left(nullptr), right(nullptr) {}
+    BinTree(int x) : value(x), left(nullptr), right(nullptr), parent(nullptr) {}
 };
 
 BinaryTreeNode *createMinimalBST (std::vector<int> const&v);
 BinaryTreeNode *createMinimalBST (std::vector<int> const&v, int min, int max);
 BinTree *createMinimalBST_v2 (std::vector<int> const&v);
-BinTree *createMinimalBST_v2 (std::vector<int> const&v, int min, int max);
+BinTree *createMinimalBST_v2 (std::vector<int> const&v, int min, int max, BinTree *);
 int getHeight_v2(BinTree *node);
 void insertNode_v2(BinTree *node, int n);
 
@@ -60,5 +61,8 @@ void fillDepths (std::vector<std::list<int>> &lists, BinTree *node, int level);
 bool isBalanced(BinTree *root);
 
 bool isBST(BinTree *root);
+
+BinTree * search(BinTree *root, int n);
+BinTree * successor(BinTree *node);
 
 #endif //GRAPH_BINARYTREE_H

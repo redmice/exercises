@@ -110,3 +110,33 @@ TEST_F (bstTest, bstTest_NonBinaryTreeReturnsFalse_Test) {
 TEST_F (bstTest, bstTest_terriblyWrongBST_Test) {
     EXPECT_FALSE(isBST(terriblyWrongBST));
 }
+
+TEST_F (bstTest, bstTest_rootNodeNeverHasParent_Test){
+    EXPECT_EQ(nullptr, sample->parent);
+}
+
+TEST_F(bstTest, nextToNineIsTen) {
+    EXPECT_EQ(10, successor(search(sample, 9))->value);
+}
+
+TEST_F(bstTest, nextToRightMostLeaveIsNull) {
+    EXPECT_EQ(nullptr, successor(search(sample, 123)));
+}
+
+TEST_F(bstTest, nextToRootIs67) {
+    EXPECT_EQ(45, successor(search(sample, 10))->value);
+}
+
+TEST_F(bstTest, nextToRootEmptyTreeIsEmpty) {
+    BinTree *empty = nullptr;
+    EXPECT_EQ(nullptr, successor(empty));
+}
+
+TEST_F(bstTest, bstTest_singleNodeTreeDoesNotHaveNext_Test) {
+    BinTree *single = new BinTree(1);
+    EXPECT_EQ(nullptr, successor(single));
+}
+
+
+
+

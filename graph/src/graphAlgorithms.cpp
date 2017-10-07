@@ -5,6 +5,7 @@
 #include <queue>
 #include "graph.h"
 #include "BinaryTree.h"
+#include "SimpleDirectedGraph.h"
 
 
 // 4.1 Route Between Nodes: Given a directed graph, design an algorithm to find out whether there is a route between
@@ -58,18 +59,19 @@ BinaryTreeNode *createMinimalBST (std::vector<int> const&v, int min, int max){
 
 
 BinTree *createMinimalBST_v2 (std::vector<int> const&v){
-    BinTree *root = createMinimalBST_v2(v, 0, v.size()-1);
+    BinTree *root = createMinimalBST_v2(v, 0, v.size()-1, nullptr);
     return root;
 }
 
-BinTree *createMinimalBST_v2 (std::vector<int> const&v, int min, int max){
+BinTree *createMinimalBST_v2 (std::vector<int> const&v, int min, int max, BinTree *parent){
     if (max < min) {
         return nullptr;
     }
     int midPoint = (min + max) / 2;
     BinTree *node = new BinTree(v[midPoint]);
-    node->left = createMinimalBST_v2(v, min, midPoint-1);
-    node->right = createMinimalBST_v2(v, midPoint+1, max);
+    node->parent = parent;
+    node->left = createMinimalBST_v2(v, min, midPoint-1, node);
+    node->right = createMinimalBST_v2(v, midPoint+1, max, node);
     return node;
 }
 
@@ -155,3 +157,64 @@ bool isBST(BinTree *root) {
 
 // 4.6 Successor: Write an algorithm to find the "next" node (i.e., in-order successor) of a given node in a binary
 // search tree. You may assume that each node has a link to its parent.
+
+BinTree * successor(BinTree *node) {
+    if (node == nullptr)
+        return nullptr
+                ;
+    if (node->right) {           //I have something to the right => left-most leave on the right branch
+        BinTree *runner = node->right;
+        while (runner->left) {
+            runner = runner->left;
+        }
+        return runner;
+    }
+
+    BinTree *runner = node;      // I am the right child => way up until I am on a left branch, or nothing
+    while ((runner->parent) && (runner->parent->right == runner)) {
+        runner = runner->parent;
+    }
+    return runner->parent;
+}
+
+
+BinTree * search(BinTree *root, int n) {
+    if (!root || (root->value == n)){
+        return root;
+    }
+    if (root->value >= n) {
+        return search(root->left, n);
+    }
+    return search(root->right, n);
+}
+
+/*
+ * 4.7 Build Order: You are given a list of projects and a list of dependencies (which is a list of pairs of
+ * projects, where the second project is dependent on the first project). All of a project's dependencies
+ * must be built before the project is. Find a build order that will allow the projects to be built. If there
+ * is no valid build order, return an error.
+ *
+ * EXAMPLE
+ * Input:
+ * projects: a, b, c, d, e, f
+ * dependencies: (a, d), (f, b), (b, d), (f, a), (d, c)
+ * Output: f, e, a, b, d, c
+ */
+
+void buildOrder (std::list<int> projects, std::list<std::pair<int, int>> dependencies) {
+    SimpleDirectedGraph graph = buildGraph(projects, dependencies);
+    if (graph.isCycle()){
+        std::cout << "Error: cyclic dependencies \n";
+    }
+    else {
+        graph.tSort();
+    }
+}
+
+SimpleDirectedGraph buildGraph (std::list<int> projects, std::list<std::pair<int, int>> dependencies) {
+    SimpleDirectedGraph graph = SimpleDirectedGraph(projects.size());
+    for (auto dep : dependencies){
+        graph.addEdge(dep.first, dep.second);
+    }
+    return graph;
+}
