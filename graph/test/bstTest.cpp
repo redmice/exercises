@@ -137,6 +137,46 @@ TEST_F(bstTest, bstTest_singleNodeTreeDoesNotHaveNext_Test) {
     EXPECT_EQ(nullptr, successor(single));
 }
 
+TEST_F(bstTest, bstTest_weCanFindOurAncestors_Test) {
+    BinTree *v1 = find (sample, 123);
+    BinTree *v2 = find (sample, 9);
 
+    EXPECT_EQ(10, lca(sample, v1, v2)->value);
+}
+
+TEST_F(bstTest, bstTest_weANodeIsItsOwnAncestor_Test) {
+    BinTree *v1 = find (sample, 3);
+    BinTree *v2 = find (sample, 9);
+
+    EXPECT_EQ(3, lca(sample, v1, v2)->value);
+}
+
+TEST_F(bstTest, bstTest_weCanFindOurAncestors_v2_Test) {
+    BinTree *v1 = find (sample, 123);
+    BinTree *v2 = find (sample, 9);
+
+    EXPECT_EQ(10, lca_v2(sample, v1, v2)->value);
+}
+
+TEST_F(bstTest, bstTest_weANodeIsItsOwnAncestor_v2_Test) {
+    BinTree *v1 = find (sample, 3);
+    BinTree *v2 = find (sample, 9);
+
+    EXPECT_EQ(3, lca_v2(sample, v1, v2)->value);
+}
+
+TEST_F(bstTest, bstTest_weCanFindOurAncestors_noParent_Test) {
+    BinTree *v1 = find (sample, 123);
+    BinTree *v2 = find (sample, 9);
+
+    EXPECT_EQ(10, lca_noParent(sample, v1, v2)->value);
+}
+
+TEST_F(bstTest, bstTest_weANodeIsItsOwnAncestor_noParent_Test) {
+    BinTree *v1 = find (sample, 3);
+    BinTree *v2 = find (sample, 9);
+
+    EXPECT_EQ(3, lca_noParent(sample, v1, v2)->value);
+}
 
 

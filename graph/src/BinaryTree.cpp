@@ -62,3 +62,15 @@ int BinaryTreeNode::getHeight() {
 
     return std::max(heightLeft, heightRight);
 }
+
+BinTree* find(BinTree* root, int n){
+    if (root == nullptr){
+        return nullptr;
+    }
+    if (n == root->value)
+        return root;
+    if (n < root->value)
+        return find(root->left, n);
+    else
+        return find(root->right, n);
+}

@@ -3,6 +3,7 @@
 //
 
 #include <queue>
+#include <unordered_set>
 #include "graph.h"
 #include "BinaryTree.h"
 #include "SimpleDirectedGraph.h"
@@ -217,4 +218,101 @@ SimpleDirectedGraph buildGraph (std::list<int> projects, std::list<std::pair<int
         graph.addEdge(dep.first, dep.second);
     }
     return graph;
+}
+
+/*
+ * 4.8 First Common Ancestor: Design an algorithm and write code to find the first common ancestor
+ * of two nodes in a binary tree. Avoid storing additional nodes in a data structure. NOTE: This is not
+ * necessarily a binary search tree.
+ *
+ * According to the definition of LCA on Wikipedia: “The lowest common ancestor is defined between two nodes v and w as
+ * the lowest node in T that has both v and w as descendants (where we allow a node to be a descendant of itself).”
+ *
+ *       _______3______
+ *      /              \
+ *   ___5__          ___1__
+ *  /      \        /      \
+ *  6      _2       0       8
+ *        /  \
+ *        7   4
+ *
+ * For example, the lowest common ancestor (LCA) of nodes 5 and 1 is 3. Another example is LCA of nodes 5 and 4 is 5,
+ * since a node can be a descendant of itself according to the LCA definition.
+ *
+ */
+
+bool check(BinTree* node, std::unordered_set<BinTree *> &visited) {
+    if (!node)
+        return false;
+    if (visited.find(node) != visited.end())
+        return true;
+    visited.insert(node);
+    return false;
+}
+
+// With links to parents. Time complexity O(D) where D is depth of tree. Space complexity O(D) due to hash table
+BinTree* lca(BinTree *root, BinTree *v1, BinTree *v2) {
+    std::unordered_set<BinTree *> visited;
+
+    if ((v1 == nullptr) || (v2 == nullptr))
+        return nullptr;
+    if ((v1 == root) || (v2 == root))
+        return root;
+    if (v1 == v2) {
+        return v1;
+    }
+    while ((v1 != nullptr) || (v2 != nullptr)) {
+        if (check(v1, visited))
+            return (v1);
+        if (check(v2, visited))
+            return (v2);
+        v1 = v1->parent;
+        v2 = v2->parent;
+    }
+    return nullptr;
+}
+
+int getDepth(BinTree* node) {
+    int depth = 0;
+    while (node != nullptr) {
+        node = node->parent;
+        depth++;
+    }
+    return depth;
+}
+
+BinTree* moveUpBy(BinTree *node, int n) {
+    while ((n > 0) && (node != nullptr)) {
+        node = node->parent;
+        n--;
+    }
+    return node;
+}
+
+// With links to parents. Time complexity O(D) where D is depth of tree. Space complexity O(1): no additional data struct
+BinTree* lca_v2(BinTree *root, BinTree *v1, BinTree *v2) {
+    int delta = getDepth(v1) - getDepth(v2);
+    BinTree *first = (delta >= 0) ? v2 : v1;
+    BinTree *second = (delta >= 0) ? v1 : v2;
+    second = moveUpBy(second, abs(delta));
+
+    while ((first) && (second) && (first != second)) {
+        first = first->parent;
+        second = second->parent;
+    }
+
+    return (!first || !second) ? nullptr : first;
+}
+
+// With no link to parents.
+BinTree* lca_noParent(BinTree* root, BinTree* v1, BinTree* v2) {
+    // 1. check if v1 and v2 fall under the same branch. Otherwise I found the common ancestor
+
+    BinTree *lca = root;
+    while ( (((v1->value <= lca->value) && (v2->value <= lca->value)) ||
+             ((v1->value > lca->value) && (v2->value > lca->value))) &&   //While on the same branch
+           (lca)){
+        lca = v1->value <= lca->value ? lca->left : lca->right;
+    }
+    return lca;
 }
