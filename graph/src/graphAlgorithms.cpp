@@ -316,3 +316,66 @@ BinTree* lca_noParent(BinTree* root, BinTree* v1, BinTree* v2) {
     }
     return lca;
 }
+
+/*
+ * BST Sequences: A binary search tree was created by traversing through an array from left to right and inserting each
+ * element. Given a binary search tree with distinct elements, print all possible arrays that could have led to this
+ * tree.
+ * EXAMPLE Input:
+ *       __2__
+ *      /     \
+ *     1       3
+ *
+ * Output: {2, 1, 3}, {2, 3, 1}
+ */
+
+std::vector<std::list<int>> sequences(BinTree *root) {
+    std::vector<std::list<int>> seqsLeft;
+    std::vector<std::list<int>> seqsRight;
+    std::vector<std::list<int>> result;
+    std::list<int> prefix;
+
+    if (root == nullptr){
+        std::list<int> empty = {};
+        result.push_back(empty);
+        return result;
+    }
+
+    seqsLeft = sequences(root->left);
+    seqsRight = sequences(root->right);
+    prefix.push_back(root->value);
+    for (auto left : seqsLeft){
+        for (auto right : seqsRight){
+            weave(left, right, result, prefix);
+        }
+    }
+    return result;
+}
+
+void weave(std::list<int> list1,
+           std::list<int> list2,
+           std::vector<std::list<int>> &results,
+           std::list<int> prefix){
+
+    if ((list1.size() == 0) || (list2.size() == 0)) {
+        std::list<int> result = prefix;
+        result.insert(result.end(), list1.begin(), list1.end());
+        result.insert(result.end(), list2.begin(), list2.end());
+        results.push_back(result);
+        return;
+    }
+
+    int head1 = list1.front();
+    list1.pop_front();
+    prefix.push_back(head1);
+    weave (list1, list2, results, prefix);
+    list1.push_front(head1);
+    prefix.pop_back();
+
+    int head2 = list2.front();
+    list1.pop_front();
+    prefix.push_back(head2);
+    weave (list1, list2, results, prefix);
+    list1.push_front(head2);
+    prefix.pop_back();
+}

@@ -66,6 +66,12 @@ BinTree* lca(BinTree *root, BinTree *v1, BinTree *v2);
 BinTree* lca_v2(BinTree *root, BinTree *v1, BinTree *v2);
 BinTree* lca_noParent(BinTree* root, BinTree* v1, BinTree* v2);
 
+std::vector<std::list<int>> sequences(BinTree *root);
+void weave(std::list<int> list1,
+                                  std::list<int> list2,
+                                  std::vector<std::list<int>> &results,
+                                  std::list<int> prefix);
+
 bool isBalanced(BinTree *root);
 
 bool isBST(BinTree *root);
