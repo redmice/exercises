@@ -8,7 +8,7 @@ if (APPLE)
     add_definitions(-D__GLIBCXX__)
 endif (APPLE)
 
-set(SOURCE_FILES main.cpp src/graph.cpp src/graph.h src/graphAlgorithms.cpp src/weightedGraph.cpp src/weightedGraph.h src/BinaryTree.cpp src/BinaryTree.h src/SimpleDirectedGraph.cpp src/SimpleDirectedGraph.h)
+set(SOURCE_FILES src/main.cpp src/graph.cpp src/graph.h src/graphAlgorithms.cpp src/weightedGraph.cpp src/weightedGraph.h src/BinaryTree.cpp src/BinaryTree.h src/SimpleDirectedGraph.cpp src/SimpleDirectedGraph.h)
 add_executable(graph ${SOURCE_FILES})
 
 set(TEST_SOURCE_FILES test/graphTest.cpp src/graph.cpp src/graph.h src/graphAlgorithms.cpp src/weightedGraph.cpp src/weightedGraph.h src/BinaryTree.cpp src/BinaryTree.h test/bstTest.cpp src/SimpleDirectedGraph.cpp src/SimpleDirectedGraph.h test/testSimpleGraph.cpp)
