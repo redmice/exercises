@@ -3,57 +3,76 @@
 
 
 /*
- * Merge sort - O(n log(n)) avg. and worst case. Space O(n)
+ * Merge sort -
+ * Time complexity O(n log(n)) avg. and worst case.
+ * Space complexity O(n)
+ *
+ * Pseudo-code
+ *
+ * MergeSort(arr[], l,  r)
+ * If r > l
+ *      1. Find the middle point to divide the array into two halves:
+ *              middle m = (l+r)/2
+ *      2. Call mergeSort for first half:
+ *              Call mergeSort(arr, l, m)
+ *      3. Call mergeSort for second half:
+ *              Call mergeSort(arr, m+1, r)
+ *      4. Merge the two halves sorted in step 2 and 3:
+ *              Call merge(arr, l, m, r)
  */
 
-void merge (std::vector<int> &input, std::vector<int> &helper,  size_t  first,  size_t  middle,  size_t  last);
-void mergeSort(std::vector<int> &input, std::vector<int> &helper,  size_t  first, size_t last);
+void merge (std::vector<int> &input,  size_t  first,  size_t  middle,  size_t  last);
+void mergeSort(std::vector<int> &input, size_t  first, size_t last);
 void mergeSort(std::vector<int> &input);
 
 void mergeSort(std::vector<int> &input) {
-    std::vector <int> helper(input.size());
-    mergeSort(input, helper, 0, input.size()-1);
+    mergeSort(input, 0, input.size()-1);
 }
 
-void mergeSort(std::vector<int> &input, std::vector<int> &helper,  size_t  first,  size_t  last) {
+void mergeSort(std::vector<int> &input,  size_t  first,  size_t  last) {
     if (first < last) {
         int middle = (first + last) / 2;
-        mergeSort (input, helper, first, middle);
-        mergeSort (input, helper, middle+1, last);
-        merge (input, helper, first, middle, last);
+        mergeSort (input, first, middle);
+        mergeSort (input, middle+1, last);
+        merge (input, first, middle, last);
     }
 }
 
-void merge (std::vector<int> &input, std::vector<int> &helper,  size_t  first,  size_t  middle,  size_t  last) {
-    for (auto i = first; i <= last; i++){	// 1. Create a copy of input
-        helper[i] = input[i];
-    }
+void merge (std::vector<int> &input, size_t  first,  size_t  middle,  size_t  last) {
+    std::vector<int> helper = input;
+
+//    for (auto i = first; i <= last; i++){	// 1. Create a copy of input
+//        helper[i] = input[i];
+//    }
     int current = first;  //Current position in the input vector
     int leftIndex = first;
-    int rightIndex = middle+1;
+    int rightIndex = middle + 1;
 
-    while ((leftIndex <= middle) && (rightIndex <= last)){
-        if (helper[leftIndex] <= helper[rightIndex]){
+    while ((leftIndex <= middle) && (rightIndex <= last)) {
+        if (helper[leftIndex] <= helper[rightIndex]) {
             input[current] = helper[leftIndex];
             leftIndex++;
-        }
-        else {
+        } else {
             input[current] = helper[rightIndex];
             rightIndex++;
         }
         current++;
     }
-    int remainingLeft = middle - leftIndex;
-    for (auto i=0; i <= remainingLeft; i++){
-        input[current+i] = helper[leftIndex+i];
+
+   for (auto i = leftIndex; i <= middle; i++) {
+        input[current++] = helper[i];
     }
 }
+
+
 
 /*
  * Quick sort -  O(n log(n)) avg. O(n2) worst case. Space O(log(n))
  */
 
+
 void quickSort(std::vector<int> &input, int left, int right);
+
 int partition (std::vector<int> &input, int left, int right);
 
 void quickSort(std::vector<int> &input, int left, int right){
@@ -84,14 +103,14 @@ int partition (std::vector<int> &input, int left, int right){
 
 
 int main() {
-    int testSize = 50000;
-    std::vector<int> myVector(testSize);// = {8,3,5,6,4,32,6,8,6,45,5,6,65};
+    int testSize = 10;
+    std::vector<int> myVector(testSize);
     std::vector<int> testVector(testSize);
 
     srand (time(NULL));
 
     for (auto i=0; i<testSize; i++){
-        myVector[i] = rand() % 1000 + 1;
+        myVector[i] = rand() % 90 + 1;
     }
 
     // Copy over test vector
