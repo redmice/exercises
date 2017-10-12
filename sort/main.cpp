@@ -13,9 +13,10 @@
  * If r > l
  *      1. Find the middle point to divide the array into two halves:
  *              middle m = (l+r)/2
- *      2. Call mergeSort for first half:
+ *      2. If (left < right)
+ *          2.1 Call mergeSort for first half:
  *              Call mergeSort(arr, l, m)
- *      3. Call mergeSort for second half:
+ *          3.1 Call mergeSort for second half:
  *              Call mergeSort(arr, m+1, r)
  *      4. Merge the two halves sorted in step 2 and 3:
  *              Call merge(arr, l, m, r)
@@ -67,35 +68,57 @@ void merge (std::vector<int> &input, size_t  first,  size_t  middle,  size_t  la
 
 
 /*
- * Quick sort -  O(n log(n)) avg. O(n2) worst case. Space O(log(n))
+ * Quick sort -
+ * TIme complexity: O(n log(n)) avg. O(n2) worst case.
+ * Space complexity Space O(log(n))
+ *
+ * Sort can be done in place, keeping left and right indexes
+ *
+ * Pick an element, called a pivot, from the array. (e.g. element in de middle)
+ *
+ * Partitioning: reorder the array so that:
+ *      all elements with values less than the pivot come before the pivot, while
+ *      all elements with values greater than the pivot come after it (equal values can go either way).
+ * After this partitioning, the pivot is in its final position. This is called the partition operation.
+*  Recursively apply the above steps to the sub-array of elements with smaller values and
+ * separately to the sub-array of elements with greater values.
  */
 
+void quicksort (std::vector<int> &v);
+void quicksort (std::vector<int> &v, int left, int right);
+int partition (std::vector<int> &v, int left, int right);
 
-void quickSort(std::vector<int> &input, int left, int right);
 
-int partition (std::vector<int> &input, int left, int right);
+void quicksort (std::vector<int> &v){
+    quicksort (v, 0, v.size()-1);
+}
 
-void quickSort(std::vector<int> &input, int left, int right){
-    if (left < right) {
-        int index = partition(input, left, right);
-        quickSort(input, left, index - 1);
-        quickSort(input, index + 1, right);
+void quicksort (std::vector<int> &v, int left, int right){
+    int pivotIndex = partition(v, left, right);
+
+    if ((pivotIndex-1) > left) {
+        quicksort(v, left, pivotIndex - 1);
+    }
+    if (pivotIndex < right) {
+        quicksort(v, pivotIndex, right);
     }
 }
 
-int partition (std::vector<int> &input, int left, int right){
-    int pivot = input[(right + left) /2];
-    while (left <= right) {
-        while ((left <= right) && (input[left] < pivot))
-            left++;
-        while ((left <= right) &&( input[right] > pivot))
-            right--;
-        if (left <= right) {
-            int tmp = input[left];
-            input[left] = input[right];
-            input[right] = tmp;
-            left++;
-            right--;
+// return final position of the partitioned element
+int partition (std::vector<int> &v, int left, int right){
+    int pivot = v[(left + right) / 2];  //Element in the middle
+
+    while (left <= right){
+        while (v[left] < pivot){
+            ++left;
+        }
+        while (v[right] > pivot) {
+            --right;
+        }
+        if (left <= right){
+            std::swap(v[left], v[right]);
+            ++left;
+            --right;
         }
     }
     return left;
@@ -103,14 +126,15 @@ int partition (std::vector<int> &input, int left, int right){
 
 
 int main() {
-    int testSize = 10;
+    int testSize = 800;
     std::vector<int> myVector(testSize);
     std::vector<int> testVector(testSize);
+    std::vector<int> vector2 = {4, 6, 1, 8, 3, 2, 5};
 
     srand (time(NULL));
 
     for (auto i=0; i<testSize; i++){
-        myVector[i] = rand() % 90 + 1;
+        myVector[i] = rand() % 999 + 1;
     }
 
     // Copy over test vector
@@ -129,7 +153,7 @@ int main() {
     testVector = myVector;
 
     std::cout << "=-=-=-=-= Quick sort =-=-=-=-=\n";
-    quickSort(testVector, 0, testVector.size()-1);
+    quicksort(testVector);
     for (auto i=0; i<testVector.size();i++){
         std::cout << testVector[i] << " ";
     }
